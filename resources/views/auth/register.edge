@@ -1,0 +1,21 @@
+
+<div>
+    <h1>Register</h1>
+    <form action="{{ route('auth.register') }}" method="POST">
+      @if (flashMessages.has('form'))
+        <div role="alert">
+            {{ flashMessages.get('form') }}
+        </div>
+     @endif
+      <label for="email">Email</label><br>
+      <input type="text" id="email" name="email"><br>
+      <label for="username">Username</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password"><br>
+      <button type="submit" value="submit" >Register</button>
+    </form>
+    <form method="GET" action="/">
+        <button type='submit'>Back</button>
+      </form>
+  </div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS Simple Solutions Favorite Survey</title>
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark" >
+    <a class="btn btn-light" role="button" href='{{ route('auth.login') }}' >Admin Sign In</a>
+
+  @if(auth.user)
+    <a class="btn btn-light" role="button" href='{{ route('auth.logout') }}'>Logout</a>
+    <a class="btn btn-light" role="button" href='survey'>View Surveys</a>
+  @endif
+  </nav>
+  <main>
+    
+    <form class="row g-3 p-3" action="/survey" method="POST">
+      @if (flashMessages.has('form'))
+        <div role="alert"  class='text-success'>
+          {{ flashMessages.get('form') }}
+        </div> 
+      @endif
+      <h1>Your favorite things survey</h1>
+      <div class="mb-3">
+        <label for="questionOne" class="form-label">What is your favorite color?</label>
+        <input type="text" class="form-control" id="Q1" name="question_1" >
+      </div>
+      <div class="mb-3">
+        <label for="questionTwo" class="form-label">What is your favorite pet?</label>
+        <input type="text" class="form-control" id="Q2" name="question_2" >
+      </div>
+      <div class="mb-3">
+        <label for="questionThree" class="form-label">What is your favorite sport?</label>
+        <input type="text" class="form-control" id="Q3" name="question_3" >
+      </div>
+      <div class="mb-3">
+        <label for="questionFour" class="form-label">What is your favorite moive?</label>
+        <input type="text" class="form-control" id="Q4" name="question_4" >
+      </div>
+      <div class="mb-3">
+        <label for="questionFive" class="form-label">What is your favorite car?</label>
+        <input type="text" class="form-control" id="Q5" name="question_5" >
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
+</body>
+</html>
